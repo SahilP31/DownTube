@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: downtube
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: downtube
+  template:
+    metadata:
+      labels:
+        app: downtube
+    spec:
+      containers:
+      - name: downtube
+        image: localhost:8083/downtube:latest
+        imagePullPolicy: Never 
+        ports:
+        - containerPort: 8501
