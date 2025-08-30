@@ -15,6 +15,20 @@ spec:
       containers:
       - name: downtube
         image: localhost:8083/downtube:latest
-        imagePullPolicy: Never 
+        imagePullPolicy: Never
         ports:
         - containerPort: 8501
+        volumeMounts:
+        - name: video-storage
+          mountPath: /app/videos
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "500m"
+          limits:
+            memory: "1Gi"
+            cpu: "1"
+      volumes:
+      - name: video-storage
+        persistentVolumeClaim:
+          claimName: video-pvc
