@@ -8,7 +8,7 @@ def download_video(url):
         # Set yt-dlp options for video download
         ydl_opts = {
             'format': 'bestvideo+bestaudio/best',
-            'outtmpl': '%(title)s.%(ext)s',  # Output file name template
+            'outtmpl': '/app/videos/%(title)s.%(ext)s',  # Save videos to the mounted volume
         }
 
         # Download video with yt-dlp
