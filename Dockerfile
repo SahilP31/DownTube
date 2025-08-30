@@ -4,6 +4,9 @@ FROM python:3.11-slim
 # Set working directory
 WORKDIR /app
 
+# Create the videos directory and set permissions
+RUN mkdir -p /app/videos && chmod -R 777 /app/videos
+
 # Copy all necessary files
 COPY . .
 
